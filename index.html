@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animasi Bergerak dengan JavaScript</title>
+    <style>
+        /* CSS untuk posisi elemen */
+        .element-bergerak {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Elemen Bergerak dengan JavaScript</h1>
+    
+    <div class="element-bergerak" id="elemen"></div>
+
+    <script>
+        // JavaScript untuk menggerakkan elemen
+        let elemen = document.getElementById('elemen');
+        let posisi = 0;
+        let kecepatan = 2;
+
+        function animasiBergerak() {
+            posisi += kecepatan;
+            elemen.style.left = posisi + 'px';
+
+            if (posisi >= window.innerWidth - elemen.offsetWidth || posisi <= 0) {
+                kecepatan = -kecepatan;
+            }
+
+            requestAnimationFrame(animasiBergerak);
+        }
+
+        animasiBergerak();
+    </script>
+
+</body>
+</html>

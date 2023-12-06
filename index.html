@@ -2,42 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Animasi Bergerak dengan JavaScript</title>
+    <title>Animasi Gambar</title>
     <style>
-        /* CSS untuk posisi elemen */
-        .element-bergerak {
-            width: 100px;
-            height: 100px;
-            background-color: blue;
-            position: absolute;
+        /* CSS untuk styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-
-    <h1>Elemen Bergerak dengan JavaScript</h1>
-    
-    <div class="element-bergerak" id="elemen"></div>
-
-    <script>
-        // JavaScript untuk menggerakkan elemen
-        let elemen = document.getElementById('elemen');
-        let posisi = 0;
-        let kecepatan = 2;
-
-        function animasiBergerak() {
-            posisi += kecepatan;
-            elemen.style.left = posisi + 'px';
-
-            if (posisi >= window.innerWidth - elemen.offsetWidth || posisi <= 0) {
-                kecepatan = -kecepatan;
-            }
-
-            requestAnimationFrame(animasiBergerak);
-        }
-
-        animasiBergerak();
-    </script>
-
+    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Animasi">
 </body>
 </html>
